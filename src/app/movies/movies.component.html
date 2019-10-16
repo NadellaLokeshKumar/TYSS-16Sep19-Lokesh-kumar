@@ -1,0 +1,12 @@
+<div class="text-center col-md-4 offset-4">
+<input class="form-control" type="text" placeholder="search by movie name" (keyup)="search($event)">
+</div>
+
+        <div class="row">
+        <div class="container col-md-4 card card-body" *ngFor="let mov of movie">
+             
+                <h1>{{mov.Title}}</h1>
+                <img src="{{mov.Poster}}" alt="">
+            </div>
+        </div>
+

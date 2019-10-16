@@ -1,0 +1,38 @@
+<div class="col-md-4 offset-4 mt-5 mb-5 card card-body">
+        <form action="" [formGroup]="form" (ngSubmit)="addMovie(form)">
+            <h1 class="text-white text-center bg-warning">Reactive Form</h1>
+            <div class="form-group">
+                <input type="text" name="add" id="add" placeholder="Add Movie" class="form-control" formControlName="add">
+            </div>
+            <div *ngIf="add.touched && add.invalid">
+                <p class="text-danger" *ngIf="add.errors.required">*this field is required</p>
+                <p class="text-danger" *ngIf="add.errors.unique">movie name is already taken</p>
+            </div>
+            <div class="form-group">
+                <input type="text" name="title" id="title" placeholder="movie title" class="form-control" formControlName="title">
+            </div>
+            <div *ngIf="title.touched && title.invalid">
+                    <p class="text-danger" *ngIf="title.errors.required">*this field is required</p>
+                </div>
+
+                <div class="form-group">
+                        <input type="text" name="url" id="url" placeholder="Movie image url" class="form-control" formControlName="url">
+                    </div>
+                    <div *ngIf="url.touched && url.invalid">
+                            <p class="text-danger" *ngIf="url.errors.required">*this field is required</p>
+                        </div>
+        
+
+                    <div class="form-group">
+                            <textarea name="area" id="area"  rows="5" cols="3" class="form-control" formControlName="area">Movie description</textarea>
+                        </div>
+                        <div *ngIf="area.touched && area.invalid">
+                                <p class="text-danger" *ngIf="area.errors.required">*this field is required</p>
+                            </div>
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline-success float-right" [disabled]="form.invalid">Login</button>
+            </div>
+        </form>
+    </div>
+    
