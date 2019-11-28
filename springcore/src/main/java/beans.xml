@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+     
+	<bean id="hello" class="com.ty.springcore.di.Hello" init-method="init" destroy-method="destroy">  <!-- here init,destroy are method names in Hello class. -->
+		<property name="msg" value="I love Java"/>
+		
+		<property name="map"> 
+		 <map>
+			<entry key="one" value="1"/>
+			<entry key="two" value="2"/>
+		</map>	
+		</property>
+	</bean>
+	
+	<bean id="dog" class="com.ty.springcore.di.Dog" primary="true"/>
+	
+	<bean id="human" class="com.ty.springcore.di.Human"/>
+	
+	<bean id="pet" class="com.ty.springcore.di.Pet" autowire="byName">   <!-- when we use autowire, no need to give ref -->
+		 <property name="name" value="Rakhe"/>   						<!--name attribute must be same as variable name in class -->
+		 <!-- <property name="animal" ref="dog"></property> --> 		<!-- wiring through properties  -->
+		
+		<!-- <constructor-arg name="name" value="Rakhe"></constructor-arg> -->    
+		<!-- <constructor-arg name="animal" ref="dog"></constructor-arg> -->		<!-- it is called constructor wiring.  -->
+	</bean>
+	
+	<bean id="animal" class="com.ty.springcore.di.Cat"/>
+	
+	<bean id="beanPostProcessor" class="com.ty.springcore.di.BeanPostProcessorClass"/>
+	
+	<bean id="beanFactoryPostProcessor" class="com.ty.springcore.di.BeanFactoryPostProcessorClass"/>
+     
+</beans> 
