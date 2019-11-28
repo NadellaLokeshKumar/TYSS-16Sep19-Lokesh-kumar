@@ -1,0 +1,14 @@
+
+<div class="row ">
+        <div class="mx-auto d-block">
+<button type="submit">search</button>
+<input type="text" name="text" id="text" (keyup)="selectOne($event)">
+</div>
+</div>
+
+<div class="row">
+        <div class="card card-body col-md-3 card-img-top" *ngFor="let new of news4">
+            <img class="card-img-top" src="{{new.urlToImage}}" alt="">
+            <h6>{{new.title}}</h6>
+        </div>
+        </div>
