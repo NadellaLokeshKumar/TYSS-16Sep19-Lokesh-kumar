@@ -60,7 +60,7 @@ public class RetailerDaoImpl implements RetailerDAO{
 		EntityManager manager = factory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
 		transaction.begin();
-			RetailerBean bean = new RetailerBean();
+			RetailerBean bean = manager.find(RetailerBean.class, id);
 			bean.setPassword(password);
 			transaction.commit();
 
