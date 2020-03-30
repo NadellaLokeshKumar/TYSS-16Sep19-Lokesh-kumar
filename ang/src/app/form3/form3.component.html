@@ -1,0 +1,46 @@
+<form class="col-md-4 offset-4 mt-5 mb-5 card card-body bg-danger" #form3="ngForm" (ngSubmit)=submitData2(form3)>
+    <h1 class="bg-dark text-light text-center form-group">Form3</h1>
+    <div class="form-group">
+        <input type="text" class="form-control" name="username" id="usernamename" placeholder="User Name" #username="ngModel" ngModel required minlength="6">
+    </div>
+    <div *ngIf="username.touched && username.invalid">
+        <p class="alert alert-danger" *ngIf="username.errors.required">This field is required</p>
+    <p class="alert alert-danger" *ngIf="username.errors.minlength">This field is required</p>
+</div> 
+    <div class="form-group">
+            <input type="text" class="form-control" name="page" id="page" placeholder="User Page">
+        </div>
+        <div class="form-group">
+            <label>Gender</label><br>
+            <input type="radio" name="gender">Male
+            <input type="radio" name="gender">Female
+            <input type="radio" name="gender">Others
+        </div>
+        <div class="form-group">
+                <input type="text" class="form-control" name="email" id="email" #email="ngModel" ngModel placeholder="User Email" required>
+            </div>
+            <div *ngIf="email.touched && email.invalid">
+                <p class="alert alert-danger" *ngIf="email.errors.required">This field is required</p>
+           
+        </div> 
+            <div class="form-group">
+                    <input type="text" class="form-control" name="number" id="number" placeholder="User Contact Number">
+                </div>
+                <div class="form-group">
+                        <input type="password" class="form-control" name="password" id="password" #password="ngModel" ngModel placeholder="password" required minlength="5">
+                    </div>
+                    <div *ngIf="password.touched && password.invalid">
+                        <p class="alert alert-danger" *ngIf="password.errors.required">This field is required</p>
+                    <p class="alert alert-danger" *ngIf="password.errors.minlength">This field is required</p>
+                </div> 
+                    <div class="form-group">
+                            <input type="password" class="form-control" name="retype" id="retype" #retype="ngModel" ngModel placeholder="Retype-Password" required minlength="5">
+                        </div>
+                        <div *ngIf="retype.touched && retype.invalid">
+                            <p class="alert alert-danger" *ngIf="retype.errors.required">This field is required</p>
+                        <p class="alert alert-danger" *ngIf="retype.errors.minlength">This field is required</p>
+                    </div> 
+                        <div>
+                            <button type="submit" class="btn btn-success float-right" [disabled]=form3.invalid>Add User</button>
+                        </div>
+</form>

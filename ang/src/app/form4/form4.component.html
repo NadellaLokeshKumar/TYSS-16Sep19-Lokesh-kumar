@@ -1,0 +1,30 @@
+<form class="col-md-4 offset-4 mt-5 mb-5 bg-warning card card-body" #form4="ngForm" (ngSubmit)="submitData3(form4)">
+    <h1 class="bg-dark text-light text-center ">Form 4</h1>
+    <div class="form-group">
+        <input class="form-control" type="text" name="name" id="name" placeholder="Product Name" #name="ngModel" ngModel required minlength="5">
+    </div>
+    <div *ngIf="name.touched && name.invalid">
+        <p class="alert alert-danger" *ngIf="name.errors.required">This field is required</p>
+    <p class="alert alert-danger" *ngIf="name.errors.minlength">This field is required</p>
+</div>  
+    <div class="form-group">
+            <input class="form-control" type="text" name="price" id="price" placeholder="Product Price" #price="ngModel" ngModel required >
+        </div>
+        <div *ngIf="price.touched && price.invalid">
+            <p class="alert alert-danger" *ngIf="price.errors.required">This field is required</p>
+
+    </div>  
+        <div class="form-group">
+                <input class="form-control" type="text" name="descripion" id="descripion" placeholder="Product Descripion">
+            </div>
+            <div class="form-group">
+                    <input class="form-control" type="text" name="img" id="img" placeholder="Image URL" #img="ngModel" ngModel required >
+                </div>
+                <div *ngIf="img.touched && img.invalid">
+                    <p class="alert alert-danger" *ngIf="img.errors.required">This field is required</p>
+        
+            </div> 
+                <div>
+                        <button type="submit" class="btn btn-success float-right" [disabled]="form4.invalid">Add Product</button>
+                    </div>
+</form>

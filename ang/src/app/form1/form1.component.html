@@ -1,0 +1,41 @@
+<form class="col-md-4 offset-4 mt-5 mb-5 card card-body bg-warning" #form1="ngForm" (ngsubmit)=submitData(form1)>
+    <h1 class="bg-dark text-light text-center form-group">Form1</h1>
+    <div class="form-group">
+        <input class="form-control" type="text" placeholder="Company Name" name="companyname" id="companyname" required
+            #companyname="ngModel" ngModel minlength="6">
+    </div>
+
+    <div *ngIf="companyname.touched && companyname.invalid">
+        <p class="alert alert-danger" *ngIf="companyname.errors.required">This field is required</p>
+        <p class="alert alert-danger" *ngIf="companyname.errors.minlength">This field is required</p>
+    </div>
+    <div class=" form-group">
+        <select class="form-control">
+            <option skills disabled>skills</option><br>
+            <option>java</option>
+            <option>SQL</option>
+            <option>Angular</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" placeholder="Year Of PassedOut" name="YOP" id="YOP" #YOP="ngModel"
+            ngModel required>
+    </div>
+    <div *ngIf="YOP.touched && YOP.invalid">
+        <p class="alert alert-danger" *ngIf="YOP.errors.required">This field is required</p>
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" placeholder="MCTC" name="MCTC" id="MCTC" #MCTC="ngModel" ngModel>
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" placeholder="Location" name="Location" id="Location" #Location="ngModel"
+            ngModel required>
+    </div>
+    <div *ngIf="Location.touched && Location.invalid">
+        <p class="alert alert-danger" *ngIf="Location.errors.required">This field is required</p>
+    </div>
+    <div>
+        <button type="submit" class="btn text-dark btn-danger float-right" name="Requirement" id="Requirement"
+            [disabled]="form1.invalid">Add Requirement</button>
+    </div>
+</form>
